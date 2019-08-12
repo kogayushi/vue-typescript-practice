@@ -1,21 +1,21 @@
+<template>
+  <div class="todos">
+    <div v-for="todo in todos" :key="todo.id">
+      <AppTodoItem :todo="todo" />
+    </div>
+  </div>
+</template>
 <script lang="ts">
 import Vue from "vue";
+import AppTodoItem, { Todo } from "./AppTodoItem.vue";
 
-export type Todo = {
-  id: string;
-  task: string;
-  done: boolean;
-};
 export type Data = {
-  firstName: string;
-  lastName: string;
   todos: Todo[];
 };
 export default Vue.extend({
   data: (): Data => ({
-    firstName: "Taro",
-    lastName: "Yamada",
     todos: []
-  })
+  }),
+  components: { AppTodoItem }
 });
 </script>
